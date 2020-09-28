@@ -31,7 +31,7 @@ export default class TimeApi {
         return JSON.parse(time)
       }
 
-      return {}
+      return null
     })
   }
 

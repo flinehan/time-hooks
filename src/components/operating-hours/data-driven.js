@@ -24,8 +24,6 @@ export const DataDrivenOperatingHours = (props) => {
           )
         }
 
-        debugger
-
         if (item.twentyFourHours) {
           return (
             <OperatingHours.Item>

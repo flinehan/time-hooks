@@ -72,9 +72,7 @@ export default function Time() {
   const [data, setData] = useState({ hours: defaultValues });
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-
-
-
+  const [loading, setLoading] = useState(true);
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
   const toggleShowSuccess = () => setSuccess(!success);
   const toggleShowError = () => setError(!error);
@@ -103,18 +101,26 @@ export default function Time() {
     const fetchData = async () => {
       const result = await timeApi.get()
 
-      debugger
-
       if (result) {
         setData({ hours: result });
       } else {
         setData({ hours: defaultValues });
       }
-
+      setLoading(false)
     };
 
     fetchData();
   }, []);
+
+  if (loading) {
+    return (
+      <Container className="p-3">
+        <Jumbotron>
+          <div>Loading Data</div>
+        </Jumbotron>
+      </Container>
+    )
+  }
 
   return (
     <Container className="p-3">
@@ -178,7 +184,7 @@ export default function Time() {
                             ref={register} />
                           <label className="form-check-label" htmlFor={`${day}isClosed`}>
                             Closed
-                      </label>
+                          </label>
                         </div>
                       </td>
                       <td>
@@ -196,7 +202,6 @@ export default function Time() {
                       </td>
                     </tr>
                   )
-
                 })}
               </tbody>
             </table>

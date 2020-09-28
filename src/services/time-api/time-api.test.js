@@ -4,7 +4,7 @@ describe('timeApi', () => {
   test('should get data', (done) => {
     timeApi.get()
       .then((data) => {
-        expect(data).toEqual({});
+        expect(data).toEqual(null);
         done()
       })
   });
