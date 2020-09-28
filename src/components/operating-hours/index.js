@@ -4,20 +4,13 @@ import {TwentyFourHours} from './twenty-four-hours'
 import {OperatingHoursItem} from './item'
 import {SpecialHour} from './special-hour'
 import {Format} from './format'
-
-export const DataDrivenOperatingHours = (props) => {
-
-  return (
-    <div>
-      {props.children([])}
-    </div>
-  )
-}
+import {DataDrivenOperatingHours} from './data-driven'
 
 export const OperatingHours = {
   List: OperatingHoursList,
   TwentyFourHours,
   Item: OperatingHoursItem,
   SpecialHour,
-  Format
+  Format,
+  DataDriven:DataDrivenOperatingHours
 }

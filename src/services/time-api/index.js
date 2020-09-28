@@ -23,7 +23,7 @@ export default class TimeApi {
   /**
    * get all data under the namespace
    */
-  get() {
+  async get() {
     return this._simulateApiCall(() => {
       const time = localStorage.getItem(this.timeApiNameSpace)
 
@@ -39,10 +39,10 @@ export default class TimeApi {
    * update data
    * @param {*} value 
    */
-  update(value) {
+  async update(value) {
     return this._simulateApiCall(() => {
       localStorage.setItem(this.timeApiNameSpace, JSON.stringify(value))
-      return JSON.parse(localStorage.getItem(this.timeApiNameSpace)) 
+      return JSON.parse(localStorage.getItem(this.timeApiNameSpace))
     })
   }
 }
