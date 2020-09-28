@@ -1,11 +1,11 @@
 import React from "react";
 
 export const Format = (props) => {
-  const {start, open, close} = props.hours
+  const {day, openTime, closeTime} = props.hours
 
   return (
     <div>
-      {start} {open} - {close}
+      {day} {openTime} - {closeTime}
     </div>
   )
 }

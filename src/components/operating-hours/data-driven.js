@@ -5,25 +5,31 @@ export const DataDrivenOperatingHours = (props) => {
   const { hours } = props
 
   if (!hours.length) {
-    return (<div>No hours Listed</div>)
+    return (
+      <div>
+        No hours Listed, if you are the admin please configure your hours
+      </div>
+    )
   }
 
   return (
     <OperatingHours.List hours={hours}>
       {(item, index) => {
 
-        if (item.closed) {
+        if (item.isClosed) {
           return (
             <OperatingHours.Item>
-              Closed
+              {item.day} Closed
             </OperatingHours.Item>
           )
         }
 
+        debugger
+
         if (item.twentyFourHours) {
           return (
             <OperatingHours.Item>
-              <OperatingHours.TwentyFourHours start={item.start} end={item.end} />
+              <OperatingHours.TwentyFourHours start={item.day} end={item.closeTime} />
             </OperatingHours.Item>
           )
         }
